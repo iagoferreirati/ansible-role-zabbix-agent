@@ -1,0 +1,3 @@
+---
+# vars file for role-zabbix-agent
+zabbix_agent_package: zabbix-agent

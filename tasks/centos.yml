@@ -1,0 +1,23 @@
+---
+- name: Install Zabbix Repository CentOS
+  yum: 
+    name: https://repo.zabbix.com/zabbix/5.4/rhel/{{ centos_version }}/x86_64/{{ zabbix_release }}.el{{ centos_version }}.noarch.rpm
+    state: present
+  when: ansible_facts['os_family'] == "RedHat" or ansible_facts['os_family'] == "CentOS"
+
+- name: Install Zabbix Agent CentOS
+  yum:
+    name: "{{ zabbix_agent_package }}"
+    state: latest
+  when: ansible_facts['os_family'] == "RedHat" or ansible_facts['os_family'] == "CentOS"    
+
+- name: Copy template zabbix-agent.conf CentOS
+  template:
+    src: "{{zabbix_agent_package | replace ('-','_')}}.conf.j2"
+    dest: /etc/zabbix/{{zabbix_agent_package | replace ('-','_')}}.conf 
+  when: ansible_facts['os_family'] == "RedHat" or ansible_facts['os_family'] == "CentOS"
+
+- name: Start service CentOS
+  service: name="{{ zabbix_agent_package }}" state=restarted  
+  when: ansible_facts['os_family'] == "RedHat" or ansible_facts['os_family'] == "CentOS"
+...

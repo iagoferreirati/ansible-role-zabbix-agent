@@ -1,0 +1,7 @@
+---
+- name: Include role Centos
+  include: centos.yml
+
+- name: Include role Ubuntu
+  include: ubuntu.yml  
+...
