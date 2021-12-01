@@ -17,14 +17,14 @@
 
 - name: Install Zabbix Agent Ubuntu
   apt:
-    name: "{{ zabbix_agent_package }}"
+    name: zabbix_agent2
     state: latest
   
 - name: Copy template zabbix-agent.conf Ubuntu
   template:
     src: zabbix_agent.conf.j2
-    dest: /etc/zabbix/{{zabbix_agent_package | replace ('-','_')}}.conf 
+    dest: /etc/zabbix/zabbix-agent2,conf
 
 - name: Start service
-  service: name="{{ zabbix_agent_package }}" state=restarted  enabled=yes
+  service: name=zabbix-agent2 state=restarted  enabled=yes
 ...
