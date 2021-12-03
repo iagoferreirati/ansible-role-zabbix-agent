@@ -1,5 +1,5 @@
 ---
 zabbix_release: "5.5"
 zabbix_version: "5.5-1"
-zabbix_server: zabbix.maxmilhas.com.br
+zabbix_server: localhost
 ...
