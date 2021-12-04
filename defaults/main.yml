@@ -1,5 +1,5 @@
 ---
-zabbix_release: "5.5"
-zabbix_version: "5.5-1"
+zabbix_release: "5.4"
+zabbix_version: "5.4-1"
 zabbix_server: localhost
 ...
