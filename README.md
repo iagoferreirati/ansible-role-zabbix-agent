@@ -1,5 +1,5 @@
 # stack-zabbix-agent
-=========
+
 Install zabbix agent
 
 ##### Variaveis a serem passadas:
